@@ -19,9 +19,8 @@ This is setup as a Gradle project using the default src/main, etc. directory con
 * The 'master' branch contains the starting point for the kata.  It is
   also tagged as 'start-here'. **Currently contains original code from Alex Aitken**
 
-* The 'solution' branch will be my ongoing solution for this kata. Feedback welcome!
+* The 'solution-java8' branch will be my ongoing solution for this kata. Feedback welcome!
 
-It was fun. You should give it a try!
 
 Jeff
  
