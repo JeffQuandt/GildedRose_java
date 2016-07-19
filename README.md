@@ -1,35 +1,29 @@
 # The Gilded Rose Code Kata
 
-This is a Java version of the Gilded Rose Kata, original found
-[here](http://www.iamnotmyself.com/2011/02/13/RefactorThisTheGildedRoseKata.aspx).
+This is a Java version of the Gilded Rose Kata meant for Spock, original found
+[here](http://www.iamnotmyself.com/2011/02/13/RefactorThisTheGildedRoseKata.aspx). Original Java version found [here](http://github.com/alexaitken/GildedRose_java).
 
 
 ## A few small changes
 
-* After seeing jim weirich [ruby port](http://github.com/jimweirich/gilded_rose_kata) I also included tests in the project for the original functionality.
-
-* I have moved the hard coded items to the default constructor and gave an alternative constructor to allows the tests to inject the list of items.
+* Migrating the unit tests to Spock as a learning exercise.
 
 
 ## Setup
 
-This has been setup as an eclipse project.  I have not provided an ant build file or a maven pom.
-* To setup create a new java project in eclipse.  (check out the code from git hub directly or import it into your java project)
-* add the junit 4 library to your build path.
-* include both the test and src directory as "Source Folders"
-* right click the project and run as JUnit test
+This is setup as a Gradle project using the default src/main, etc. directory conventions. No IDE specific files will be provided, although I will be doing development in Intellij IDEA 2016.x.
 
 
 ## Branches
 
 * The 'master' branch contains the starting point for the kata.  It is
-  also tagged as 'start-here'.
+  also tagged as 'start-here'. **Currently contains original code from Alex Aitken**
 
-* The 'solution' branch is my first solution for this kata. Feedback welcome!
+* The 'solution' branch will be my ongoing solution for this kata. Feedback welcome!
 
 It was fun. You should give it a try!
 
-Alex    
+Jeff
  
 
 # Original Description of the Gilded Rose
