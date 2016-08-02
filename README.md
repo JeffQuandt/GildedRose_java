@@ -7,6 +7,8 @@ This is a Java version of the Gilded Rose Kata meant for Spock, original found
 ## A few small changes
 
 * Migrating the unit tests to Spock as a learning exercise.
+* Clarifiying the Aged Brie aging rules
+* Include tests/support for Conjured items
 
 
 ## Setup
@@ -19,7 +21,7 @@ This is setup as a Gradle project using the default src/main, etc. directory con
 * The 'master' branch contains the starting point for the kata.  It is
   also tagged as 'start-here'. **Currently contains original code from Alex Aitken**
 
-* The 'solution-java8' branch will be my ongoing solution for this kata. Feedback welcome!
+* The 'solution' branch will be my ongoing solution for this kata. Feedback welcome!
 
 
 Jeff
@@ -47,7 +49,8 @@ Pretty simple, right? Well this is where it gets interesting:
 
   - Once the sell by date has passed, Quality degrades twice as fast
   - The Quality of an item is never negative
-  - "Aged Brie" actually increases in Quality the older it gets
+  - "Aged Brie" actually increases in Quality the older it gets. Once
+    passed the sellIn, it increases twice as fast
   - The Quality of an item is never more than 50
   - "Sulfuras", being a legendary item, never has to be sold or
     decreases in Quality
