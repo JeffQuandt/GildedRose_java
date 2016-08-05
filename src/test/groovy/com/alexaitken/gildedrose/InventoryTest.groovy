@@ -95,6 +95,48 @@ public class InventoryTest extends Specification {
         23 == normalItem.quality
     }
 
+    def "should lower the quality by two for conjured items"() {
+
+        given: "A Conjured Cinnamon Roll"
+        Item conjuredItem = new Item("Conjured Cinnamon Roll", 10, 20)
+
+        Inventory sut = new Inventory((Item[]) Arrays.asList(conjuredItem).toArray())
+
+        when: "Updating quality of Inventory"
+        sut.updateQuality()
+
+        then: "The quality of the conjured item has decreased by two."
+        18 == conjuredItem.quality
+    }
+
+    def "should not lower the conjured item quality below zero"() {
+
+        given: "A conjured glass of hot chocolate with quality of zero"
+        Item conjuredItem = new Item("Conjured Hot Chocolate", 10, 0)
+
+        Inventory sut = new Inventory((Item[]) Arrays.asList(conjuredItem).toArray())
+
+        when: "Updating quality of Inventory"
+        sut.updateQuality()
+
+        then: "The quality of the conjured item has updated to zero, but not below."
+        0 == conjuredItem.quality
+    }
+
+    def "should lower the conjured item quality twice as fast once the sell in date has passed"() {
+
+        given: "A conjured loaf of bread passed its sellIn threshold"
+        Item conjuredItem = new Item("Conjured Loaf of Bread", -1, 25)
+
+        Inventory sut = new Inventory((Item[]) Arrays.asList(conjuredItem).toArray())
+
+        when: "Updating quality of Inventory"
+        sut.updateQuality()
+
+        then: "The quality of the conjured item has decreased by four."
+        21 == conjuredItem.quality
+    }
+
 
     def "should increase the quality of aged brie as it gets older"() {
 

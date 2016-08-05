@@ -28,8 +28,12 @@ public class Inventory {
 					&& items[i].getName() != "Backstage passes to a TAFKAL80ETC concert") {
 				if (items[i].getQuality() > 0) {
 					if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-						items[i].setQuality(items[i].getQuality() - 1);
-					}
+                        if (!items[i].getName().contains("Conjured")) {
+                            items[i].setQuality(items[i].getQuality() - 1);
+                        } else {
+                            items[i].setQuality(items[i].getQuality() - 2);
+                        }
+                    }
 				}
 			} else {
 				if (items[i].getQuality() < 50) {
@@ -60,8 +64,12 @@ public class Inventory {
 					if (items[i].getName() != "Backstage passes to a TAFKAL80ETC concert") {
 						if (items[i].getQuality() > 0) {
 							if (items[i].getName() != "Sulfuras, Hand of Ragnaros") {
-								items[i].setQuality(items[i].getQuality() - 1);
-							}
+                                if (!items[i].getName().contains("Conjured")) {
+                                    items[i].setQuality(items[i].getQuality() - 1);
+                                } else {
+                                    items[i].setQuality(items[i].getQuality() - 2);
+                                }
+                            }
 						}
 					} else {
 						items[i].setQuality(items[i].getQuality()

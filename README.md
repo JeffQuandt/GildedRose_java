@@ -18,10 +18,9 @@ This is setup as a Gradle project using the default src/main, etc. directory con
 
 ## Branches
 
-* The 'master' branch contains the starting point for the kata.  It is
-  also tagged as 'start-here'. **Currently contains original code from Alex Aitken**
+* The 'master' branch contains the starting point for the kata.
 
-* The 'solution' branch will be my ongoing solution for this kata. Feedback welcome!
+* The 'solution-java8' branch will be my ongoing solution for this kata. Feedback welcome!
 
 
 Jeff
@@ -69,8 +68,8 @@ alter the Item class or Items property as those belong to the goblin
 in the corner who will insta-rage and one-shot you as he doesn't
 believe in shared code ownership (you can make the UpdateQuality
 method and Items property static if you like, we'll cover for
-you). Your work needs to be completed by Friday, February 18, 2011
-08:00:00 AM PST.
+you). Subclasses or interfaces (and interface implementation-related changes in
+Item class) are acceptable as new code.
 
 Just for clarification, an item can never have its Quality increase
 above 50, however "Sulfuras" is a legendary item and as such its
