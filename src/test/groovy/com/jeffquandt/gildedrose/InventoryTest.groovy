@@ -1,4 +1,4 @@
-package com.alexaitken.gildedrose
+package com.jeffquandt.gildedrose
 
 import spock.lang.Specification
 
@@ -171,6 +171,21 @@ public class InventoryTest extends Specification {
 
         given: "A fine Aged Brie of exceptional quality"
         Item agedBrie = new Item("Aged Brie", 10, 50)
+
+        Inventory sut = new Inventory((Item[]) Arrays.asList(agedBrie).toArray())
+
+        when: "Updating quality of Inventory"
+        sut.updateQuality()
+
+        then: "The quality of the Aged Brie should not increase"
+        50 == agedBrie.quality
+    }
+
+
+    def "should not increase the quality of aged brie over 50 even after sellIn date"() {
+
+        given: "A fine Aged Brie of exceptional quality"
+        Item agedBrie = new Item("Aged Brie", -1, 50)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(agedBrie).toArray())
 

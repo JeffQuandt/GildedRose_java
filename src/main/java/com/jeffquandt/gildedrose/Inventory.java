@@ -1,4 +1,4 @@
-package com.alexaitken.gildedrose;
+package com.jeffquandt.gildedrose;
 
 public class Inventory {
 

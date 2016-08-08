@@ -1,38 +1,20 @@
-// Hibernate requires two variables. One for internal use by Spring (hibernate.version), and one for use in
-// build.gradle files (hibernateVersion) due to how Gradle does string interpolation
-ext['hibernate.version'] = '5.1.0.Final'
-ext['hibernateVersion'] = '5.1.0.Final'
-ext['springVersion'] = '2.5.2.RELEASE'
-ext['springBootVersion'] = '1.3.6.RELEASE'
-ext['springDataCommonsVersion'] = '1.12.2.RELEASE'
-ext['springDataJpaVersion'] = '1.10.2.RELEASE'
-ext['springIntegrationVersion'] = '4.2.6.RELEASE'
-ext['querydslVersion'] = '4.1.3'
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'groovy'
+group 'com.jeffquandt.gildedrose'
 
-allprojects {
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-    apply plugin: 'idea'
-    apply plugin: 'java'
-    apply plugin: 'groovy'
-    group 'com.alexaitken.gildedrose'
-
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-
-    repositories {
-        mavenCentral()
-    }
-
+repositories {
+    mavenCentral()
 }
+
 
 
 
 description = """Gilded Rose - Java 8 + Spock"""
 
-
-configurations {
-    all*.exclude module: 'spring-boot-starter-logging'
-}
 
 dependencies {
     compile "org.apache.logging.log4j:log4j:2.5"
@@ -42,7 +24,6 @@ dependencies {
     testCompile "org.codehaus.groovy:groovy-all:2.1.7"
     testCompile "commons-io:commons-io:2.4"
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
-//            testCompile "org.spockframework:spock-spring:1.0-groovy-2.4"
     testCompile "org.codehaus.groovy:groovy-all:2.4.6"
     testRuntime "com.athaydes:spock-reports:1.2.7"
 }
