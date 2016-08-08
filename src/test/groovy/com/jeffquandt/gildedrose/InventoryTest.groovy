@@ -1,20 +1,20 @@
-package com.alexaitken.gildedrose
+package com.jeffquandt.gildedrose
 
 import spock.lang.Specification
 
 public class InventoryTest extends Specification {
-//	new Item("+5 Dexterity Vest", 10, 20), 
-//	new Item("Aged Brie", 2, 0),
-//	new Item("Elixir of the Mongoose", 5, 7),
-//	new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-//	new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-//	new Item("Conjured Mana Cake", 3, 6)
+//	ItemFactory.instance().buildItem("+5 Dexterity Vest", 10, 20), 
+//	ItemFactory.instance().buildItem("Aged Brie", 2, 0),
+//	ItemFactory.instance().buildItem("Elixir of the Mongoose", 5, 7),
+//	ItemFactory.instance().buildItem("Sulfuras, Hand of Ragnaros", 0, 80),
+//	ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
+//	ItemFactory.instance().buildItem("Conjured Mana Cake", 3, 6)
 
     def "Sulfuras, Hand of Ragnaros never changes in Quality"() {
         given: "Sulfuras, Hand of Ragnaros"
-        Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80)
+        Item sulfuras = ItemFactory.instance().buildItem("Sulfuras, Hand of Ragnaros", 0, 80)
 
-        Inventory sut = new Inventory((Item[]) Arrays.asList(new Item("Sulfuras, Hand of Ragnaros", 0, 80)).toArray())
+        Inventory sut = new Inventory((Item[]) Arrays.asList(ItemFactory.instance().buildItem("Sulfuras, Hand of Ragnaros", 0, 80)).toArray())
 
         when: "Updating quality of Inventory"
         sut.updateQuality()
@@ -27,7 +27,7 @@ public class InventoryTest extends Specification {
     def "Sulfuras, Hand of Ragnaros never change sellIn"() {
 
         given: "Sulfuras, Hand of Ragnaros"
-        Item sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80)
+        Item sulfuras = ItemFactory.instance().buildItem("Sulfuras, Hand of Ragnaros", 0, 80)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(sulfuras).toArray())
 
@@ -42,7 +42,7 @@ public class InventoryTest extends Specification {
     def "SellIn of normal items is decreased by one"() {
 
         given: "A perfectly normal +5 Dexterity vest"
-        Item normalItem = new Item("+5 Dexterity Vest", 10, 20)
+        Item normalItem = ItemFactory.instance().buildItem("+5 Dexterity Vest", 10, 20)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(normalItem).toArray())
 
@@ -56,7 +56,7 @@ public class InventoryTest extends Specification {
     def "should lower the quality by one for normal items"() {
 
         given: "A perfectly normal +5 Dexterity vest"
-        Item normalItem = new Item("+5 Dexterity Vest", 10, 20)
+        Item normalItem = ItemFactory.instance().buildItem("+5 Dexterity Vest", 10, 20)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(normalItem).toArray())
 
@@ -70,7 +70,7 @@ public class InventoryTest extends Specification {
     def "should not lower the quality below zero"() {
 
         given: "A perfectly normal +5 Dexterity vest with quality of zero"
-        Item normalItem = new Item("+5 Dexterity Vest", 10, 0)
+        Item normalItem = ItemFactory.instance().buildItem("+5 Dexterity Vest", 10, 0)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(normalItem).toArray())
 
@@ -84,7 +84,7 @@ public class InventoryTest extends Specification {
     def "should lower the quality twice as fast once the sell in date has passed"() {
 
         given: "A perfectly normal +5 Dexterity vest passed its sellIn threshold"
-        Item normalItem = new Item("+5 Dexterity Vest", -1, 25)
+        Item normalItem = ItemFactory.instance().buildItem("+5 Dexterity Vest", -1, 25)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(normalItem).toArray())
 
@@ -98,7 +98,7 @@ public class InventoryTest extends Specification {
     def "should lower the quality by two for conjured items"() {
 
         given: "A Conjured Cinnamon Roll"
-        Item conjuredItem = new Item("Conjured Cinnamon Roll", 10, 20)
+        Item conjuredItem = ItemFactory.instance().buildItem("Conjured Cinnamon Roll", 10, 20)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(conjuredItem).toArray())
 
@@ -112,7 +112,7 @@ public class InventoryTest extends Specification {
     def "should not lower the conjured item quality below zero"() {
 
         given: "A conjured glass of hot chocolate with quality of zero"
-        Item conjuredItem = new Item("Conjured Hot Chocolate", 10, 0)
+        Item conjuredItem = ItemFactory.instance().buildItem("Conjured Hot Chocolate", 10, 0)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(conjuredItem).toArray())
 
@@ -126,7 +126,7 @@ public class InventoryTest extends Specification {
     def "should lower the conjured item quality twice as fast once the sell in date has passed"() {
 
         given: "A conjured loaf of bread passed its sellIn threshold"
-        Item conjuredItem = new Item("Conjured Loaf of Bread", -1, 25)
+        Item conjuredItem = ItemFactory.instance().buildItem("Conjured Loaf of Bread", -1, 25)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(conjuredItem).toArray())
 
@@ -141,7 +141,7 @@ public class InventoryTest extends Specification {
     def "should increase the quality of aged brie as it gets older"() {
 
         given: "A fine Aged Brie"
-        Item agedBrie = new Item("Aged Brie", 10, 25)
+        Item agedBrie = ItemFactory.instance().buildItem("Aged Brie", 10, 25)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(agedBrie).toArray())
 
@@ -155,7 +155,7 @@ public class InventoryTest extends Specification {
     def "should increase the quality of Aged Brie twice as fast after sellIn date"() {
 
         given: "A fine Aged Brie passed its sellIn threshold"
-        Item normalItem = new Item("Aged Brie", -1, 25)
+        Item normalItem = ItemFactory.instance().buildItem("Aged Brie", -1, 25)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(normalItem).toArray())
 
@@ -170,7 +170,7 @@ public class InventoryTest extends Specification {
     def "should not increase the quality of aged brie over 50"() {
 
         given: "A fine Aged Brie of exceptional quality"
-        Item agedBrie = new Item("Aged Brie", 10, 50)
+        Item agedBrie = ItemFactory.instance().buildItem("Aged Brie", 10, 50)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(agedBrie).toArray())
 
@@ -184,7 +184,7 @@ public class InventoryTest extends Specification {
     def "should lower backstage passes to zero quality once concert has happened"() {
 
         given: "Backstage passes to L80 Elite Tauren Chieften concert from yesterday"
-        Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 20)
+        Item backStagePass = ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", -1, 20)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(backStagePass).toArray())
 
@@ -198,7 +198,7 @@ public class InventoryTest extends Specification {
     def "should increase backstage passes quality by 1 when the concert is more than 10 days away"() {
 
         given: "Backstage passes to L80 Elite Tauren Chieften concert"
-        Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20)
+        Item backStagePass = ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", 11, 20)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(backStagePass).toArray())
 
@@ -212,7 +212,7 @@ public class InventoryTest extends Specification {
     def "should increase backstage passes quality by 2 when the concert is 10 days or less away"() {
 
         given: "Backstage passes to L80 Elite Tauren Chieften concert that is happening soon"
-        Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 27)
+        Item backStagePass = ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", 10, 27)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(backStagePass).toArray())
 
@@ -226,7 +226,7 @@ public class InventoryTest extends Specification {
     def "should increase backstage passes quality by 3 when the concert is 5 days or less away"() {
 
         given: "Backstage passes to L80 Elite Tauren Chieften concert happening very soon"
-        Item backStagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 44)
+        Item backStagePass = ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", 5, 44)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(backStagePass).toArray())
 
@@ -240,10 +240,10 @@ public class InventoryTest extends Specification {
     def "should not increase backstage passes above a quality of 50"() {
 
         given: "Backstage passes to L80 Elite Tauren Chieften concerts with a quality of 50"
-        Item backStagePassMoreThan10DaysAway = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 50)
+        Item backStagePassMoreThan10DaysAway = ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", 15, 50)
 
-        Item backStagePass10DaysAway = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49)
-        Item backStagePass5DaysAway = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48)
+        Item backStagePass10DaysAway = ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", 10, 49)
+        Item backStagePass5DaysAway = ItemFactory.instance().buildItem("Backstage passes to a TAFKAL80ETC concert", 5, 48)
 
         Inventory sut = new Inventory((Item[]) Arrays.asList(backStagePassMoreThan10DaysAway, backStagePass10DaysAway, backStagePass5DaysAway).toArray())
 
