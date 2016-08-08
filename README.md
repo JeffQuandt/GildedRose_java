@@ -22,6 +22,7 @@ This is setup as a Gradle project using the default src/main, etc. directory con
 
 * The 'solution-inheritanceFactory' branch is a solution for this kata using inheritance and Factory patterns. Feedback welcome!
 
+* The 'solution-delegate' branch is a solution using a delegate pattern.
 
 Jeff
  
