@@ -1,25 +1,17 @@
 
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'groovy'
+group 'com.jeffquandt.gildedrose'
 
-allprojects {
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-    apply plugin: 'idea'
-    apply plugin: 'java'
-    apply plugin: 'groovy'
-    group 'com.jeffquandt.gildedrose'
-
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-
-    repositories {
-        mavenCentral()
-    }
-
+repositories {
+    mavenCentral()
 }
 
-
-
 description = """Gilded Rose - Java 8 + Spock"""
-
 
 dependencies {
     compile "org.apache.logging.log4j:log4j:2.5"
@@ -30,7 +22,7 @@ dependencies {
     testCompile "commons-io:commons-io:2.4"
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
     testCompile "org.codehaus.groovy:groovy-all:2.4.6"
-    testRuntime "com.athaydes:spock-reports:1.2.7"
+    testRuntime "com.athaydes:spock-reports:1.2.12"
 }
 
 
