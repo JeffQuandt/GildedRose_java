@@ -20,7 +20,7 @@ This is setup as a Gradle project using the default src/main, etc. directory con
 
 * The 'master' branch contains the starting point for the kata.
 
-* The 'solution-java8' branch will be my ongoing solution for this kata. Feedback welcome!
+* The 'solution-inheritanceFactory' branch is a solution for this kata using inheritance and Factory patterns. Feedback welcome!
 
 
 Jeff
